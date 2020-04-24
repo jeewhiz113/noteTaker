@@ -5,7 +5,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static('public')); //look into public folder to serve up frontend
 var path = require('path');
-var PORT = 8080;
+var PORT = process.env.PORT || 3000;;
 
 //return notes.html file.
 app.get("/notes", function(req, res){
@@ -88,5 +88,5 @@ app.delete("/api/notes/:id", function(req, res){
 })
   
 app.listen(PORT, function(){
-    console.log("Listening on PORT 8080");
+    console.log("Listening on PORT " + PORT );
 })
